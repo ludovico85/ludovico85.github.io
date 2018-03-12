@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+		<link rel="stylesheet" href="css/leaflet-sidebar.css">
+		<link rel="stylesheet" href="font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+       <div id="sidebar" class="sidebar collapsed">
+		<div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" title = "Info" role="tab"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#profile" title = "Chi siamo" role="tab"><i class="fa fa-user"></i></a></li>
+                <li class="enabled"><a href="#messages" title = "Invia e-mail" role="tab"><i class="fa fa-envelope"></i></a></li>
+				<hr style="border: 1px dashed orange;" />
+				<li><a href="#Cuculo" title = "Cuculo" role="tab"><img src="images/cuculo_ico.png" alt="OSD" width="24" height="15"></a></li>
+				<li><a href="#Succiacapre" title = "Succiacapre" role="tab"><img src="images/succiacapre_ico.png" alt="OSD" width="24" height="16"></a></li>
+				<li><a href="#Torcicollo" title = "Torcicollo" role="tab"><img src="images/torcicollo_ico.png" alt="OSD" width="24" height="24"></a></li>
+            </ul>
+            <ul role="tablist">
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+		<!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">
+                    <font face= "sans-serif"> Atlante degli uccelli nella Riserva Naturale Regionale Monte Genzana Alto Gizio </font>
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+
+                <p> <font face= "sans-serif"> L'Atlante degli uccelli nella Riserva Naturale Regionale Monte Genzana Alto Gizio nasce da un'idea dello <a style="color:orange; text-decoration:none" href="http://www.ecoview.it" target="_blank"> <b>Studio Associato Ecoview</b></a> e dalla piattaforma <a style="color:orange; text-decoration:none" href="http://www.lezionigis.it" target="_blank"> <b>Lezioni GIS</b></a>  
+				<br> L'atlante riporta la presenza di varie specie di uccelli all'interno del territorio della Riserva utilizzando come base una griglia regolare di dimensione 1X1 km. L'assenza di una determina specie può essere interpretata in due modi: 1) la specie è effettivamente assente 2) la specie è presente ma non è stata campionata.</br>
+				<table><tr><td style="text-align: center;"><img src="legend/Cuculo_3_Specieassente1.png" /></td><td><font face= "sans-serif">Specie Assente</font></td></tr><tr><td style="text-align: center;"><img src="legend/Cuculo_3_Speciepresente0.png" /></td><td><font face= "sans-serif">Specie Presente</font></td></tr></table>
+				<br> Le informazioni riportate nell'Atlante degli uccelli nella Riserva Naturale Regionale Monte Genzana Alto Gizio possono essere utilizzate per la redazione di Piani di Gestione, Valutazioni di incidenza, studi ambientali e territoriali in generale.</font></br>
+				</p>
+				
+            </div>
+
+            <div class="sidebar-pane" id="profile">
+                <h1 class="sidebar-header"><font face= "sans-serif"> Chi siamo</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<p> <font face = "sans-serif">
+				<b>Mauro Fabrizio</b> Laureato in Scienze ambientali e Pianificatore ambientale. Dal 2012 al 2017 è stato il Direttore della Riserva Naturale Regionale Monte Genzana Alto Gizio. Nel corso degli anni è stato docente in oltre 50 corsi di formazione riguardanti fauna selvatica, reti ecologiche, road ecology e GIS ed è stato professore a contratto del corso di Sistemi Informativi Territoriali... <a style="color:orange; text-decoration:none" href="https://www.lezionigis.it/chi-siamo/" title = "Maggiori informazioni" role="tab" target="_blank"><i class="fa fa-arrow-right"></i></a>
+				<br>
+				<br>
+				<br>
+				<b>Ludovico Frate</b> Laureato in Scienze e Tecnologie Forestali e Ambientali e abilitato alla professione di Dottore Forestale. Nel 2015 ha conseguito il titolo di Dottore di Ricerca presso l’Università degli Studi del Molise occupandosi principalmente di ecologia del paesaggio approfondendo le conoscenze nel campo del GIS.. <a style="color:orange; text-decoration:none" href="https://www.lezionigis.it/chi-siamo/" target="_blank" title = "Maggiori informazioni" role="tab"><i class="fa fa-arrow-right"></i></a>
+				</font>
+				<br>
+				<br>
+				<br>
+				<table><tr><td style="text-align: center;"><a href="http://www.ecoview.it/" target="_blank"> <img src="http://www.ecoview.it/wp-content/uploads/2014/01/logo1.jpg" height="50" width="200"; /></td></table>
+				<br>
+				<br>
+				<table><tr><td style="text-align: center;"><a href="http://www.lezionigis.it/" target="_blank"><img src="https://www.lezionigis.it/wp-content/uploads/2017/10/logo.png"/></td></table>
+			</div>
+
+            <div class="sidebar-pane" id="messages">
+                <h1 class="sidebar-header"><font face="sans-serif">Invia e-mail a: info@lezionigis.it</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<form action="mailto:someone@example.com" method="post" enctype="text/plain">
+				<font face= "sans-serif">Nome:<br>
+				<input type="text" name="name"><br>
+				E-mail:<br>
+				<input type="text" name="mail"><br>
+				Commento:<br>
+				<input type="text" name="comment" size="50"><br><br>
+				<input type="submit" value="Invia">
+				<input type="reset" value="Resetta">
+				</font>
+				</form>
+			</div>
+			<div class="sidebar-pane" id="Cuculo">
+				<h1 class="sidebar-header"><font face="sans-serif">Cuculo (<i>Cuculus Canorus</i>)</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                 <p> <font face="sans-serif"> 
+				 <b> Nome Comune </b>
+				 <br>Cuculo</br>
+				 <b> Nome Scientifico </b>
+				 <br><i>Cuculus Canorus</i></br>
+				 <b> Classe</b>
+				 <br>Aves</br>
+                 <b> Ordine</b>
+				 <br>Cuculiformes</br>
+                 <b>Famiglia</b>
+				 <br>Cuculinae</br>
+                 <b> Genere</b>
+				 <br><i>Cuculus</i></br>
+				 <b>Rischio estinzione<sup><a style="color:orange; text-decoration:none" href="http://www.iucn.it/categorie.php" target="_blank" title="Info" role="tab" style="text-decoration:none"><i class="fa fa-info"></i></a></sup></b>
+				 <br>Minima preoccupazione (LC)</br>
+				 <b>Tendenza della popolazione</b>
+				 <br>In declino</br>				 
+				 <br>
+				 <img src="images/cuculo.jpg" height="280" width="350">
+				 </br>
+				 <br><b>Descrizione</b>
+				 <br>
+				 Il Cuculo è una specie olopaleartica, in Italia presenta una distribuzione ampia, in particolar modo nel Salento, dove esistono ampie zone destinate ad agricoltura estensiva. Migratore e nidificante, inizia la deposizione delle uova in concomitanza con le specie da parassitare, solitamente Passeriformi insettivori; in Italia sono segnalate 48 specie di ospiti. La migrazione prevede lo spostamento per lunghe distanze, anche 4-5000 km senza interruzione. La specie non risulta minacciata in Europa, anche se l’abbandono dei metodi di agricoltura tradizionali e la rarefazione delle specie ospiti pare abbia portato ad un generale decremento durante il secolo scorso. Nella Riserva Naturale la si rinviene come nidificante praticamente in tutti i boschi.
+				 </br>
+				 </font> </p>
+				 </div>
+				 
+				 <div class="sidebar-pane" id="Succiacapre">
+				 <h1 class="sidebar-header"><font face="sans-serif">Succiacapre (<i>Caprimulgus europaeus</i>)</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                 <p> <font face="sans-serif"> 
+				 <b> Nome Comune </b>
+				 <br>Succiacapre</br>
+				 <b> Nome Scientifico </b>
+				 <br><i>Caprimulgus europaeus</i></br>
+				 <b> Classe</b>
+				 <br>Aves</br>
+                 <b> Ordine</b>
+				 <br>	Caprimulgiformes</br>
+                 <b>Famiglia</b>
+				 <br>Caprimulgidae</br>
+                 <b> Genere</b>
+				 <br><i>Caprimulgus</i></br>
+				 <b>Rischio estinzione<sup><a style="color:orange; text-decoration:none" href="http://www.iucn.it/categorie.php" target="_blank" title="Info" role="tab" style="text-decoration:none"><i class="fa fa-info"></i></a></sup></b>
+				 <br>Minima preoccupazione (LC)</br> 
+				 <b>Tendenza della popolazione</b>
+				 <br>In diminuzione</br>
+				 <br>
+				 <img src="images/Succiacapre.jpg" height="320" width="350">
+				 </br>
+				 <br><b>Descrizione</b>
+				 <br>
+				 Il Succiacapre è una specie paleartcia, nidifica su tutta la penisola italiana eccetto il sud della Puglia e della Sicilia, oltre alle zone a quote elevate. Da agosto a metà novembre migra regolarmente verso l’Africa. La nidificazione avviene al suolo tra gli arbusti, tra i mesi di maggio ed agosto; l’habitat preferito è quello collinare, boscato e con presenza di cespugli e radure. Spesso gli alberi vengono utilizzati per la sosta durante il volo diurno e per il rituale di corteggiamento. A livello europeo, il trend della popolazione è sfavorevole; le cause principali sono riconoscibili nell’intervento umano, quale il disturbo dei siti riproduttivi, l’eliminazione degli habitat idonei, l’incremento del traffico veicolare e l’uso di pesticidi, che abbattono la densità delle loro prede, gli insetti. Nella Riserva Naturale è stata osservata in nidificazione nelle zona del Lago, del Vallone di San Nicola e dell’Ovile dei Montoni.
+				 </br>
+				 </font> </p>
+				 </div>
+				 
+				 <div class="sidebar-pane" id="Torcicollo">
+				 <h1 class="sidebar-header"><font face="sans-serif">Torcicollo (<i>Jynx torquilla</i>)</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                 <p> <font face="sans-serif"> 
+				 <b> Nome Comune </b>
+				 <br>Torcicollo</br>
+				 <b> Nome Scientifico </b>
+				 <br><i>Jynx torquilla</i></br>
+				 <b> Classe</b>
+				 <br>Aves</br>
+                 <b> Ordine</b>
+				 <br>Piciformes</br>
+                 <b>Famiglia</b>
+				 <br>Picidae</br>
+                 <b> Genere</b>
+				 <br><i>Jynx</i></br>
+				 <b>Rischio estinzione<sup><a style="color:orange; text-decoration:none" href="http://www.iucn.it/categorie.php" target="_blank" title="Info" role="tab"><i class="fa fa-info"></i></a></sup></b>
+				 <br>Minima preoccupazione (LC)</br> 
+				 <b>Tendenza della popolazione</b>
+				 <br>In aumento</br>
+				 <br>
+				 <img src="images/torcicollo.jpg" height="300" width="350">
+				 </br>
+				 <br><b>Descrizione</b>
+				 <br>
+				 Il Torcicollo è una specie a distribuzione eurosibirica. Predilige ambienti a mosaico con presenza di filari di alberi o arbusti. La presenza di alberi permette alla specie di nidificare all’interno delle cavità o riutilizzando nidi di altri piciformi. Si nutre di insetti a terra. La specie è migratrice e nidificante oltre che svernante parziale in Italia. Sembra essere in declino a livello generale, probabilmente a causa dell’eliminazione di siepi e filari di alberi oltre che dell’uso di biocidi. Nella Riserva Naturale il Torcicollo nidifica lungo il confine nord e nord orientale dove sono presenti alberi adiacenti ad aree coltivate.
+				 </br>
+				 </font> </p>
+				 </div>
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header"><font face="sans-serif">Strumenti</font><span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<p><font face="sans-serif"> Progetto realizzato con <span style="color:orange; font-weight=bold; font-style = sans-serif"> QGIS 2.18 </span> mediante l'utilizzo del plug-in 
+				<a style="color:orange; text-decoration:none; font-weight=bold" href = "https://github.com/tomchadwin/qgis2web/wiki">qgis2web</a>
+				<br>
+				<br>
+				<br>
+				<a style="color:orange; text-decoration:none; font-weight=bold" href = "https://github.com/Turbo87/sidebar-v2">Sidebar v2</a> per creare il presente pannello
+				</br>
+				</font>
+			</font>
+			</div>
+        </div>
+		</div>
+		<div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+		<script src="js/leaflet-sidebar.js"></script> <!--script sidebar-->
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/RiservaNaturaleguidataMonteGenzanaAltoGizio_0.js"></script>
+        <script src="data/Torcicollo_1.js"></script>
+        <script src="data/Succiacapre_2.js"></script>
+        <script src="data/Cuculo_3.js"></script>
+        <script>
+
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[41.9021715695,13.8223702876],[41.9893192644,14.0411238866]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://stamen-tiles-a.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_RiservaNaturaleguidataMonteGenzanaAltoGizio_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(String(feature.properties['fid'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RiservaNaturaleguidataMonteGenzanaAltoGizio_0_0() {
+            return {
+                pane: 'pane_RiservaNaturaleguidataMonteGenzanaAltoGizio_0',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(9,117,141,0.0)',
+            }
+        }
+        map.createPane('pane_RiservaNaturaleguidataMonteGenzanaAltoGizio_0');
+        map.getPane('pane_RiservaNaturaleguidataMonteGenzanaAltoGizio_0').style.zIndex = 400;
+        map.getPane('pane_RiservaNaturaleguidataMonteGenzanaAltoGizio_0').style['mix-blend-mode'] = 'normal';
+        var layer_RiservaNaturaleguidataMonteGenzanaAltoGizio_0 = new L.geoJson(json_RiservaNaturaleguidataMonteGenzanaAltoGizio_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_RiservaNaturaleguidataMonteGenzanaAltoGizio_0',
+            onEachFeature: pop_RiservaNaturaleguidataMonteGenzanaAltoGizio_0,
+            style: style_RiservaNaturaleguidataMonteGenzanaAltoGizio_0_0,
+        });
+        bounds_group.addLayer(layer_RiservaNaturaleguidataMonteGenzanaAltoGizio_0);
+        map.addLayer(layer_RiservaNaturaleguidataMonteGenzanaAltoGizio_0);
+        function pop_Torcicollo_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Presenza/assenza</strong><br />' + (feature.properties['Presenza/assenza'] !== null ? Autolinker.link(String(feature.properties['Presenza/assenza'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Torcicollo_1_0(feature) {
+            switch(String(feature.properties['Presenza/assenza'])) {
+                case 'Specie presente':
+                    return {
+                pane: 'pane_Torcicollo_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,165,76,0.701960784314)',
+            }
+                    break;
+                case 'Specie assente':
+                    return {
+                pane: 'pane_Torcicollo_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(242,242,242,0.701960784314)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Torcicollo_1');
+        map.getPane('pane_Torcicollo_1').style.zIndex = 401;
+        map.getPane('pane_Torcicollo_1').style['mix-blend-mode'] = 'normal';
+        var layer_Torcicollo_1 = new L.geoJson(json_Torcicollo_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Torcicollo_1',
+            onEachFeature: pop_Torcicollo_1,
+            style: style_Torcicollo_1_0,
+        });
+        bounds_group.addLayer(layer_Torcicollo_1);
+        function pop_Succiacapre_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Presenza/assenza</strong><br />' + (feature.properties['Presenza/assenza'] !== null ? Autolinker.link(String(feature.properties['Presenza/assenza'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Succiacapre_2_0(feature) {
+            switch(String(feature.properties['Presenza/assenza'])) {
+                case 'Specie presente':
+                    return {
+                pane: 'pane_Succiacapre_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,165,76,0.701960784314)',
+            }
+                    break;
+                case 'Specie assente':
+                    return {
+                pane: 'pane_Succiacapre_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(242,242,242,0.701960784314)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Succiacapre_2');
+        map.getPane('pane_Succiacapre_2').style.zIndex = 402;
+        map.getPane('pane_Succiacapre_2').style['mix-blend-mode'] = 'normal';
+        var layer_Succiacapre_2 = new L.geoJson(json_Succiacapre_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Succiacapre_2',
+            onEachFeature: pop_Succiacapre_2,
+            style: style_Succiacapre_2_0,
+        });
+        bounds_group.addLayer(layer_Succiacapre_2);
+        function pop_Cuculo_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Presenza/assenza</strong><br />' + (feature.properties['Presenza/assenza'] !== null ? Autolinker.link(String(feature.properties['Presenza/assenza'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Cuculo_3_0(feature) {
+            switch(String(feature.properties['Presenza/assenza'])) {
+                case 'Specie presente':
+                    return {
+                pane: 'pane_Cuculo_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,165,76,0.701960784314)',
+            }
+                    break;
+                case 'Specie assente':
+                    return {
+                pane: 'pane_Cuculo_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(242,242,242,0.701960784314)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Cuculo_3');
+        map.getPane('pane_Cuculo_3').style.zIndex = 403;
+        map.getPane('pane_Cuculo_3').style['mix-blend-mode'] = 'normal';
+        var layer_Cuculo_3 = new L.geoJson(json_Cuculo_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Cuculo_3',
+            onEachFeature: pop_Cuculo_3,
+            style: style_Cuculo_3_0,
+        });
+        bounds_group.addLayer(layer_Cuculo_3);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Cuculo<br /><table><tr><td style="text-align: center;"><img src="legend/Cuculo_3_Speciepresente0.png" /></td><td>Specie presente</td></tr><tr><td style="text-align: center;"><img src="legend/Cuculo_3_Specieassente1.png" /></td><td>Specie assente</td></tr></table>': layer_Cuculo_3,'Succiacapre<br /><table><tr><td style="text-align: center;"><img src="legend/Succiacapre_2_Speciepresente0.png" /></td><td>Specie presente</td></tr><tr><td style="text-align: center;"><img src="legend/Succiacapre_2_Specieassente1.png" /></td><td>Specie assente</td></tr></table>': layer_Succiacapre_2,'Torcicollo<br /><table><tr><td style="text-align: center;"><img src="legend/Torcicollo_1_Speciepresente0.png" /></td><td>Specie presente</td></tr><tr><td style="text-align: center;"><img src="legend/Torcicollo_1_Specieassente1.png" /></td><td>Specie assente</td></tr></table>': layer_Torcicollo_1,'<img src="legend/RiservaNaturaleguidataMonteGenzanaAltoGizio_0.png" /> Riserva Naturale guidata Monte Genzana-Alto Gizio': layer_RiservaNaturaleguidataMonteGenzanaAltoGizio_0,},{collapsed:false}).addTo(map);
+        setBounds();
+		
+		var sidebar = L.control.sidebar('sidebar').addTo(map);
+		var zoomControl = L.control.zoom({position: 'bottomright'});
+        map.addControl(zoomControl);
+        </script>
+    </body>
+</html>
