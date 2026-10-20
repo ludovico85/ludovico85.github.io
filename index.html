@@ -12,10 +12,10 @@
 <meta property="og:title" content="Ludovico Frate – Dottore Forestale, consulenza agronomica e GIS">
 <meta property="og:description" content="Analisi vincoli, consulenza agronomica e forestale, VIncA, stime boschive e analisi GIS in Molise e Abruzzo.">
 <meta property="og:locale" content="it_IT">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%232f5d3a'/%3E%3Cpath d='M32 12 L46 36 H38 L48 50 H16 L26 36 H18 Z' fill='%23f6efe3'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f6f68'/%3E%3Cpath d='M32 12 L46 36 H38 L48 50 H16 L26 36 H18 Z' fill='%23ffffff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -106,32 +106,59 @@
 </script>
 
 <style>
+/* Tema "Cartografia tecnica": carta bianca, inchiostro blu notte, verde petrolio, arancio per i vincoli.
+   Sfondo con curve di livello in stile CTR (img/curve-livello.svg usato come maschera). */
 :root{
-  --bg:#f8f3ea;
-  --bg-alt:#efe6d6;
-  --surface:#fffdf8;
-  --ink:#2b2a24;
-  --ink-soft:#5d594d;
-  --forest:#2f5d3a;
-  --forest-deep:#1f3f28;
-  --moss:#7f9a5b;
-  --clay:#b8653b;
-  --line:#e2d6c1;
-  --radius:18px;
-  --shadow:0 10px 30px rgba(47,62,40,.08);
+  --bg:#f5f6f3;
+  --bg-alt:#e9ece7;
+  --surface:#ffffff;
+  --ink:#1b2733;
+  --ink-soft:#4f5b66;
+  --forest:#1f6f68;
+  --forest-deep:#162636;
+  --moss:#7fa8a1;
+  --clay:#b9651c;
+  --line:#d5dad5;
+  --contour:rgba(31,111,104,.13);
+  --band:#162636;
+  --band-ink:#eef2f4;
+  --band-soft:#b4c0c9;
+  --band-accent:#f0a35c;
+  --band-contour:rgba(238,242,244,.06);
+  --on-accent:#ffffff;
+  --f-head:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --radius:14px;
+  --shadow:0 8px 24px rgba(22,38,54,.07);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1b1d18; --bg-alt:#22251e; --surface:#262a22;
-    --ink:#ede6d8; --ink-soft:#b8b09f;
-    --forest:#8fbf8a; --forest-deep:#a7d1a1; --moss:#9fb877; --clay:#e08f62;
-    --line:#383c31; --shadow:0 10px 30px rgba(0,0,0,.3);
+    --bg:#0f161c; --bg-alt:#141e26; --surface:#1a2530;
+    --ink:#e4eaee; --ink-soft:#a1aeb8;
+    --forest:#4fb3a8; --forest-deep:#d6e6ea; --moss:#2f5d59; --clay:#f0a35c;
+    --line:#2a3743; --contour:rgba(79,179,168,.12);
+    --band:#0a1015; --band-ink:#eef2f4; --band-soft:#a1aeb8; --band-accent:#f0a35c; --band-contour:rgba(79,179,168,.08);
+    --on-accent:#0f161c; --shadow:0 8px 24px rgba(0,0,0,.35);
+    color-scheme:dark;
   }
+}
+:root[data-theme="dark"]{
+  --bg:#0f161c; --bg-alt:#141e26; --surface:#1a2530;
+  --ink:#e4eaee; --ink-soft:#a1aeb8;
+  --forest:#4fb3a8; --forest-deep:#d6e6ea; --moss:#2f5d59; --clay:#f0a35c;
+  --line:#2a3743; --contour:rgba(79,179,168,.12);
+  --band:#0a1015; --band-ink:#eef2f4; --band-soft:#a1aeb8; --band-accent:#f0a35c; --band-contour:rgba(79,179,168,.08);
+  --on-accent:#0f161c; --shadow:0 8px 24px rgba(0,0,0,.35);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif;font-size:17px;line-height:1.65}
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.2;color:var(--forest-deep);margin:0 0 .5em}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65}
+/* curve di livello: maschera colorata dal token --contour, fissa dietro al contenuto */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--contour);
+  -webkit-mask:url(img/curve-livello.svg) 0 0/900px 900px repeat;mask:url(img/curve-livello.svg) 0 0/900px 900px repeat}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;line-height:1.15;letter-spacing:-.01em;color:var(--forest-deep);margin:0 0 .5em;text-wrap:balance}
 a{color:var(--forest)}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
@@ -140,7 +167,7 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 8
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .brand svg{flex:none}
-.brand strong{font-family:"Fraunces",serif;font-size:1.15rem;display:block;line-height:1.1}
+.brand strong{font-family:var(--f-head);font-size:1.15rem;display:block;line-height:1.1}
 .brand span{font-size:.8rem;color:var(--ink-soft)}
 .nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
 .nav ul a{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:.95rem}
@@ -148,37 +175,54 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 8
 @media (max-width:760px){.nav ul{display:none}}
 
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .15s, background .15s}
-.btn-primary{background:var(--forest);color:#fff}
+.btn-primary{background:var(--forest);color:var(--on-accent)}
 .btn-primary:hover{background:var(--forest-deep);transform:translateY(-1px)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-primary{color:#132015}}
 .btn-ghost{border:2px solid var(--forest);color:var(--forest)}
-.btn-ghost:hover{background:var(--forest);color:var(--bg)}
+.btn-ghost:hover{background:var(--forest);color:var(--on-accent)}
 
 /* Hero */
 .hero{padding:80px 0 70px;position:relative;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
-.eyebrow{display:inline-block;background:var(--bg-alt);color:var(--clay);font-weight:700;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.eyebrow{display:inline-block;background:var(--surface);border:1px solid var(--line);color:var(--clay);font-family:var(--f-mono);font-weight:500;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:6px;margin-bottom:18px}
 .hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem)}
 .hero p.lead{font-size:1.15rem;color:var(--ink-soft);max-width:36em}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding:0;list-style:none}
-.tags li{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:.85rem;color:var(--ink-soft)}
+.tags li{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 10px;font-family:var(--f-mono);font-size:.78rem;color:var(--ink-soft)}
 .hero-art{position:relative}
 .hero-art svg{width:100%;height:auto;display:block}
+
+/* Foglio di mappa nell'apertura */
+.topo{filter:drop-shadow(0 10px 24px rgba(22,38,54,.10))}
+.topo .t-bg{fill:var(--surface);stroke:var(--line)}
+.topo .t-grid{fill:none;stroke:var(--line);stroke-width:1}
+.topo .t-fill{fill:var(--forest);opacity:.06}
+.topo .t-c{fill:none;stroke:var(--forest);stroke-width:1.1;opacity:.55}
+.topo .t-ci{fill:none;stroke:var(--forest);stroke-width:2.2;opacity:.9}
+.topo .t-hatch{stroke:var(--clay);stroke-width:1.4;opacity:.7}
+.topo .t-parcel{fill:url(#hatch);stroke:var(--clay);stroke-width:2;stroke-dasharray:6 4}
+.topo .t-parcel2{fill:none;stroke:var(--ink-soft);stroke-width:1.2}
+.topo .t-pin{fill:var(--clay)}
+.topo .t-pin-dot{fill:var(--surface)}
+.topo .t-stem{stroke:var(--clay);stroke-width:4;stroke-linecap:round}
+.topo .t-ink{fill:var(--ink)}
+.topo .t-txt{fill:var(--ink-soft);font-family:var(--f-mono);font-size:11px}
+.topo .t-sb1{fill:var(--ink)}
+.topo .t-sb2{fill:var(--surface);stroke:var(--ink);stroke-width:1}
 @media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:380px;margin:0 auto}.hero{padding:50px 0}}
 
 /* Sections */
 section{padding:80px 0;scroll-margin-top:70px}
-.alt{background:var(--bg-alt)}
+.alt{background:color-mix(in srgb,var(--bg-alt) 82%,transparent)}
 .section-head{max-width:640px;margin-bottom:40px}
 .section-head p{color:var(--ink-soft)}
-.kicker{color:var(--clay);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;margin-bottom:6px;display:block}
+.kicker{color:var(--clay);font-family:var(--f-mono);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:8px;display:block}
 h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 
 /* About */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
-.portrait{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,var(--moss),var(--forest));display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Fraunces",serif;font-size:4rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.portrait small{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:"Nunito Sans",sans-serif;font-size:.8rem;opacity:.8}
+.portrait{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,var(--moss),var(--forest));display:flex;align-items:center;justify-content:center;color:var(--surface);font-family:var(--f-head);font-size:4rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.portrait small{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:var(--f-mono);font-size:.75rem;opacity:.85}
 @media (max-width:760px){.about{grid-template-columns:1fr}.portrait{max-width:280px}}
 
 /* Services */
@@ -212,35 +256,37 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 
 
 /* Contact */
-.contact-box{background:var(--forest);color:#f6efe3;border-radius:28px;padding:56px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.contact-box h2{color:#fff}
-.contact-box p{color:#dfe8d9}
+.contact-box{position:relative;overflow:hidden;background:var(--band);color:var(--band-ink);border-radius:20px;padding:56px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.contact-box h2{color:var(--band-ink)}
+.contact-box p{color:var(--band-soft)}
 .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.contact-list a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.1);padding:16px 18px;border-radius:14px;color:#fff;text-decoration:none;font-weight:600;word-break:break-word}
+.contact-list a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.1);padding:16px 18px;border-radius:10px;color:var(--band-ink);text-decoration:none;font-weight:600;word-break:break-word}
 .contact-list a:hover{background:rgba(255,255,255,.18)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-box{background:#2c4a32}}
+
 @media (max-width:760px){.contact-box{grid-template-columns:1fr;padding:36px 22px}}
 
 /* Agrivoltaico */
-.agv{background:var(--forest-deep);color:#eef3e8}
-.agv h2,.agv h3{color:#fff}
-.agv .kicker{color:#f0b98f}
-.agv .section-head p{color:#cfdcc6}
+.agv{position:relative;background:var(--band);color:var(--band-ink)}
+.agv::before,.contact-box::before{content:"";position:absolute;inset:0;pointer-events:none;background:var(--band-contour);-webkit-mask:url(img/curve-livello.svg) 300px 120px/900px 900px repeat;mask:url(img/curve-livello.svg) 300px 120px/900px 900px repeat}
+.agv>.wrap,.contact-box>*{position:relative}
+.agv h2,.agv h3{color:var(--band-ink)}
+.agv .kicker{color:var(--band-accent)}
+.agv .section-head p{color:var(--band-soft)}
 .agv-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;list-style:none;margin:0 0 40px;padding:0}
-.agv-list li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 20px}
-.agv-list strong{display:block;color:#fff;margin-bottom:4px}
-.agv-list span{color:#cfdcc6;font-size:.95rem}
+.agv-list li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px 20px}
+.agv-list strong{display:block;color:var(--band-ink);margin-bottom:4px}
+.agv-list span{color:var(--band-soft);font-size:.95rem}
 .agv-split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .agv-box{border-radius:var(--radius);padding:30px}
 .agv-box p{margin:0 0 18px}
 .agv-box.dev{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15)}
-.agv-box.own{background:#f6efe3;color:#2b2a24}
-.agv-box.own h3{color:#1f3f28}
-.agv-box.own p{color:#5d594d}
+.agv-box.own{background:var(--surface);color:var(--ink)}
+.agv-box.own h3{color:var(--forest-deep)}
+.agv-box.own p{color:var(--ink-soft)}
 .agv-box ul{margin:0 0 18px;padding-left:1.1em}
-.agv .btn-primary{background:#b8653b;color:#fff}
-.agv .btn-primary:hover{background:#9c5230}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .agv{background:#17251a}}
+.agv .btn-primary{background:var(--band-accent);color:#162636}
+.agv .btn-primary:hover{background:var(--band-ink);color:#162636}
+
 @media (max-width:760px){.agv-split{grid-template-columns:1fr}}
 
 /* FAQ */
@@ -253,7 +299,7 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 .faq details p{margin:0 0 18px;color:var(--ink-soft)}
 
 /* EcoVIEW */
-.eco{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:48px 40px;box-shadow:var(--shadow)}
+.eco{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:48px 40px;box-shadow:var(--shadow)}
 .eco-badge{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;border-radius:var(--radius);background:#fff;border:1px solid var(--line);text-decoration:none;transition:transform .2s}
 .eco-badge:hover{transform:translateY(-3px)}
 .eco-badge img{width:70%;max-width:220px;height:auto}
@@ -268,7 +314,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <header>
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Ludovico Frate, home">
-      <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#2f5d3a"/><path d="M32 12 L46 36 H38 L48 50 H16 L26 36 H18 Z" fill="#f6efe3"/></svg>
+      <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" style="fill:var(--forest)"/><path d="M32 12 L46 36 H38 L48 50 H16 L26 36 H18 Z" style="fill:var(--surface)"/></svg>
       <div><strong>Ludovico Frate</strong><span>Dottore Forestale · GIS</span></div>
     </a>
     <nav aria-label="Principale">
@@ -303,27 +349,31 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </ul>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 360">
+        <svg class="topo" viewBox="0 0 400 360">
           <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d9b5"/><stop offset="1" stop-color="#f8eedd"/></linearGradient>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" class="t-hatch"/></pattern>
+            <clipPath id="sheet"><rect x="10" y="10" width="380" height="340" rx="14"/></clipPath>
           </defs>
-          <rect x="10" y="10" width="380" height="340" rx="40" fill="url(#sky)"/>
-          <circle cx="300" cy="90" r="34" fill="#e7a76c" opacity=".85"/>
-          <path d="M10 230 Q110 160 210 210 T390 190 V310 a40 40 0 0 1 -40 40 H50 a40 40 0 0 1 -40 -40Z" fill="#9fb877"/>
-          <path d="M10 270 Q140 220 250 260 T390 250 V310 a40 40 0 0 1 -40 40 H50 a40 40 0 0 1 -40 -40Z" fill="#7f9a5b"/>
-          <g fill="#2f5d3a">
-            <path d="M80 250 l22 -60 l22 60z"/><path d="M85 225 l17 -48 l17 48z"/><rect x="99" y="250" width="6" height="16" fill="#6b4a2b"/>
-            <path d="M130 245 l18 -50 l18 50z"/><rect x="145" y="245" width="5" height="14" fill="#6b4a2b"/>
-            <path d="M270 255 l24 -66 l24 66z"/><path d="M276 228 l18 -52 l18 52z"/><rect x="291" y="255" width="6" height="16" fill="#6b4a2b"/>
+          <rect x="10" y="10" width="380" height="340" rx="14" class="t-bg"/>
+          <g clip-path="url(#sheet)">
+            <path class="t-grid" d="M10 90H390M10 170H390M10 250H390M10 330H390M90 10V350M170 10V350M250 10V350M330 10V350"/>
+            <path class="t-fill" d="M244 28C340 20 410 110 396 200C382 290 290 336 196 322C102 308 66 234 80 162C94 92 150 34 244 28Z"/>
+            <path class="t-c" d="M244 28C340 20 410 110 396 200C382 290 290 336 196 322C102 308 66 234 80 162C94 92 150 34 244 28Z"/>
+            <path class="t-ci" d="M236 58C312 52 372 116 360 190C348 262 270 300 200 288C130 276 100 214 112 160C124 104 166 63 236 58Z"/>
+            <path class="t-c" d="M232 88C292 84 336 132 326 186C316 238 258 262 208 252C158 242 136 196 146 156C156 116 186 91 232 88Z"/>
+            <path class="t-c" d="M230 120C270 118 300 150 292 182C284 214 246 228 214 220C182 212 170 182 178 156C186 132 204 121 230 120Z"/>
+            <path class="t-c" d="M236 150C254 150 266 164 262 178C258 192 240 198 226 192C212 186 208 168 216 158C221 152 228 150 236 150Z"/>
+            <path class="t-parcel2" d="M150 205L250 245L235 320L175 285Z"/>
+            <path class="t-parcel" d="M60 230L150 205L175 285L80 315Z"/>
           </g>
-          <!-- griglia GIS -->
-          <g stroke="#2f5d3a" stroke-width="1.2" opacity=".35" fill="none">
-            <path d="M40 300 H360 M40 320 H360 M100 280 V340 M180 280 V340 M260 280 V340"/>
-          </g>
+          <text x="236" y="176" class="t-txt" text-anchor="middle">1240</text>
+          <g class="t-north"><path d="M44 30L52 54L44 49L36 54Z" class="t-ink"/><text x="44" y="70" class="t-txt" text-anchor="middle">N</text></g>
+          <text x="374" y="32" class="t-txt" text-anchor="end">UTM 33N</text>
+          <g transform="translate(270 322)"><rect width="40" height="6" class="t-sb1"/><rect x="40" width="40" height="6" class="t-sb2"/><text y="-6" class="t-txt">0</text><text x="80" y="-6" class="t-txt" text-anchor="end">500 m</text></g>
           <g>
-            <circle cx="210" cy="175" r="16" fill="#b8653b"/>
-            <circle cx="210" cy="175" r="6" fill="#fffdf8"/>
-            <path d="M210 191 L210 215" stroke="#b8653b" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="118" cy="244" r="14" class="t-pin"/>
+            <circle cx="118" cy="244" r="5" class="t-pin-dot"/>
+            <path d="M118 258L118 278" class="t-stem"/>
           </g>
         </svg>
       </div>
@@ -477,10 +527,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <g stroke="var(--line)" stroke-width="1"><path d="M0 52H400M0 104H400M0 156H400M0 208H400M80 0V260M160 0V260M240 0V260M320 0V260"/></g>
           <path d="M70 60 Q140 30 220 55 T340 80 L320 140 Q260 150 230 170 L180 160 Q120 150 90 120Z" fill="var(--moss)" opacity=".55"/>
           <path d="M180 160 L230 170 Q260 150 320 140 L330 200 Q260 225 200 215 Q170 200 180 160Z" fill="var(--forest)" opacity=".6"/>
-          <text x="150" y="105" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="16" fill="var(--forest-deep)">Abruzzo</text>
-          <text x="232" y="196" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="16" fill="#fffdf8">Molise</text>
+          <text x="150" y="105" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="16" fill="var(--forest-deep)">Abruzzo</text>
+          <text x="232" y="196" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="16" fill="var(--surface)">Molise</text>
           <rect x="24" y="214" width="196" height="28" rx="14" fill="var(--clay)"/>
-          <text x="122" y="233" text-anchor="middle" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="12.5" fill="#fffdf8">+ analisi GIS in tutta Italia</text>
+          <text x="122" y="233" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="12.5" fill="var(--surface)">+ analisi GIS in tutta Italia</text>
         </svg>
       </div>
     </div>
