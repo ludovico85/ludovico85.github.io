@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ludovico Frate – Dottore Forestale | Consulenza agronomica, forestale e GIS in Molise e Abruzzo</title>
-<meta name="description" content="Dott. Ludovico Frate, Dottore Forestale a Isernia. Consulenza agronomica e forestale, Valutazione di Incidenza (VIncA), stima del valore del bosco, progetti di taglio e analisi GIS per privati, aziende e Pubbliche Amministrazioni in Molise e Abruzzo.">
-<meta name="keywords" content="dottore forestale Isernia, consulenza agronomica Molise, agronomia Abruzzo, valutazione di incidenza VIncA, stima valore bosco, progetto di taglio bosco, analisi GIS, GIS analyst, consulente forestale, perizia forestale">
+<meta name="description" content="Dott. Ludovico Frate, Dottore Forestale. Consulenza agronomica e forestale, Valutazione di Incidenza (VIncA), stima del valore del bosco, progetti di taglio e analisi GIS per privati, aziende e Pubbliche Amministrazioni in Molise e Abruzzo.">
+<meta name="keywords" content="dottore forestale Molise, dottore forestale Abruzzo, consulenza agronomica Molise, agronomia Abruzzo, valutazione di incidenza VIncA, stima valore bosco, progetto di taglio bosco, analisi GIS, GIS analyst, consulente forestale, perizia forestale">
 <meta name="author" content="Ludovico Frate">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
@@ -31,17 +31,12 @@
   },
   "email": "frateludovico@gmail.com",
   "telephone": "+39 333 376 7557",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Isernia",
-    "addressRegion": "IS",
-    "addressCountry": "IT"
-  },
   "areaServed": [
     {"@type": "State", "name": "Molise"},
     {"@type": "State", "name": "Abruzzo"}
   ],
-  "serviceType": ["Consulenza agronomica", "Consulenza forestale", "Valutazione di Incidenza VIncA", "Stima del valore del bosco", "Progetti di taglio boschivo", "Analisi GIS"]
+  "serviceType": ["Consulenza agronomica", "Consulenza forestale", "Valutazione di Incidenza VIncA", "Stima del valore del bosco", "Progetti di taglio boschivo", "Analisi GIS"],
+  "sameAs": ["https://www.ecoview.it/"]
 }
 </script>
 
@@ -150,6 +145,12 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-box{background:#2c4a32}}
 @media (max-width:760px){.contact-box{grid-template-columns:1fr;padding:36px 22px}}
 
+/* EcoVIEW */
+.eco{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:48px 40px;box-shadow:var(--shadow)}
+.eco-badge{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;border-radius:var(--radius);background:linear-gradient(135deg,var(--bg-alt),var(--surface));border:1px dashed var(--line);font-family:"Fraunces",serif;font-size:2.4rem;color:var(--forest-deep);text-decoration:none}
+.eco-badge b{color:var(--clay)}
+@media (max-width:760px){.eco{grid-template-columns:1fr;padding:32px 22px}}
+
 footer{padding:36px 0;color:var(--ink-soft);font-size:.9rem;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </style>
@@ -167,6 +168,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <li><a href="#chi-sono">Chi sono</a></li>
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="#per-chi">Per chi lavoro</a></li>
+        <li><a href="#ecoview">EcoVIEW</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
     </nav>
@@ -179,7 +181,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">Isernia · Molise e Abruzzo</span>
+        <span class="eyebrow">Molise e Abruzzo</span>
         <h1>Consulenza agronomica, forestale e analisi GIS per il tuo territorio</h1>
         <p class="lead">Sono Ludovico Frate, Dottore Forestale. Affianco privati, aziende agricole e Pubbliche Amministrazioni nella gestione di boschi, terreni e progetti ambientali, con un approccio concreto e basato sui dati.</p>
         <div class="hero-cta">
@@ -295,12 +297,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="wrap area">
       <div>
         <span class="kicker">Dove opero</span>
-        <h2>Molise e Abruzzo, con sede a Isernia</h2>
-        <p>Lavoro principalmente nelle province di Isernia e Campobasso e in tutto l'Abruzzo, con sopralluoghi in campo e un'assistenza diretta dalla prima chiamata alla consegna.</p>
+        <h2>Molise e Abruzzo</h2>
+        <p>Lavoro in tutto il Molise e l'Abruzzo, con sopralluoghi in campo e un'assistenza diretta dalla prima chiamata alla consegna.</p>
         <ul>
-          <li>Provincia di Isernia (sede principale)</li>
-          <li>Provincia di Campobasso</li>
-          <li>Abruzzo: L'Aquila, Chieti, Pescara, Teramo</li>
+          <li>Tutto il territorio del Molise</li>
+          <li>Tutto il territorio dell'Abruzzo</li>
         </ul>
       </div>
       <div aria-hidden="true">
@@ -311,9 +312,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <path d="M180 160 L230 170 Q260 150 320 140 L330 200 Q260 225 200 215 Q170 200 180 160Z" fill="var(--forest)" opacity=".6"/>
           <text x="150" y="105" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="16" fill="var(--forest-deep)">Abruzzo</text>
           <text x="232" y="196" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="16" fill="#fffdf8">Molise</text>
-          <circle cx="205" cy="182" r="8" fill="var(--clay)"/><circle cx="205" cy="182" r="3" fill="#fffdf8"/>
-          <text x="140" y="190" font-family="Nunito Sans, sans-serif" font-size="12" fill="var(--ink)">Isernia</text>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOVIEW -->
+  <section id="ecoview">
+    <div class="wrap">
+      <div class="eco">
+        <div>
+          <span class="kicker">La mia società</span>
+          <h2>Altri servizi con EcoVIEW</h2>
+          <p>Oltre all'attività professionale individuale, offro ulteriori servizi attraverso EcoVIEW, la mia società. Lorem ipsum dolor sit amet, consectetur adipiscing elit: breve descrizione dei servizi di EcoVIEW.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://www.ecoview.it/" target="_blank" rel="noopener">Visita ecoview.it</a>
+          </div>
+        </div>
+        <a class="eco-badge" href="https://www.ecoview.it/" target="_blank" rel="noopener" aria-label="Vai al sito di EcoVIEW">Eco<b>VIEW</b></a>
       </div>
     </div>
   </section>
@@ -339,7 +355,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="y">2026</span> Dott. Ludovico Frate – Dottore Forestale · Isernia (IS)</span>
+    <span>© <span id="y">2026</span> Dott. Ludovico Frate – Dottore Forestale · Molise e Abruzzo</span>
     <span>P. IVA: lorem ipsum · Iscrizione all'Ordine: lorem ipsum</span>
   </div>
 </footer>
