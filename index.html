@@ -247,10 +247,11 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 .aud p{margin:0;color:var(--ink-soft)}
 
 /* Area */
-.area{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.area{display:block}
 .area ul{padding-left:1.1em;color:var(--ink-soft)}
 @media (max-width:760px){.area{grid-template-columns:1fr}}
-.where{display:grid;gap:14px;margin-top:8px}
+.where{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+@media (max-width:760px){.where{grid-template-columns:1fr}}
 .where-box{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--forest);border-radius:0 14px 14px 0;padding:16px 20px}
 .where-box.remote{border-left-color:var(--clay)}
 .where-box h3{font-size:1.08rem;margin-bottom:4px}
@@ -525,18 +526,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 2
             <p>Analisi dei vincoli, GIS e cartografia, telerilevamento e supporto a valutazioni ambientali e studi tecnici di qualsiasi regione.</p>
           </div>
         </div>
-      </div>
-      <div aria-hidden="true">
-        <svg viewBox="0 0 400 260" width="100%">
-          <rect width="400" height="260" rx="24" fill="var(--bg-alt)"/>
-          <g stroke="var(--line)" stroke-width="1"><path d="M0 52H400M0 104H400M0 156H400M0 208H400M80 0V260M160 0V260M240 0V260M320 0V260"/></g>
-          <path d="M70 60 Q140 30 220 55 T340 80 L320 140 Q260 150 230 170 L180 160 Q120 150 90 120Z" fill="var(--moss)" opacity=".55"/>
-          <path d="M180 160 L230 170 Q260 150 320 140 L330 200 Q260 225 200 215 Q170 200 180 160Z" fill="var(--forest)" opacity=".6"/>
-          <text x="150" y="105" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="16" fill="var(--forest-deep)">Abruzzo</text>
-          <text x="232" y="196" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="16" fill="var(--surface)">Molise</text>
-          <rect x="24" y="214" width="196" height="28" rx="14" fill="var(--clay)"/>
-          <text x="122" y="233" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="12.5" fill="var(--surface)">+ analisi GIS in tutta Italia</text>
-        </svg>
       </div>
     </div>
   </section>
