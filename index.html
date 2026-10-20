@@ -254,8 +254,9 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 
 /* EcoVIEW */
 .eco{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:48px 40px;box-shadow:var(--shadow)}
-.eco-badge{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;border-radius:var(--radius);background:linear-gradient(135deg,var(--bg-alt),var(--surface));border:1px dashed var(--line);font-family:"Fraunces",serif;font-size:2.4rem;color:var(--forest-deep);text-decoration:none}
-.eco-badge b{color:var(--clay)}
+.eco-badge{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;border-radius:var(--radius);background:#fff;border:1px solid var(--line);text-decoration:none;transition:transform .2s}
+.eco-badge:hover{transform:translateY(-3px)}
+.eco-badge img{width:70%;max-width:220px;height:auto}
 @media (max-width:760px){.eco{grid-template-columns:1fr;padding:32px 22px}}
 
 footer{padding:36px 0;color:var(--ink-soft);font-size:.9rem;border-top:1px solid var(--line)}
@@ -277,7 +278,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="#per-chi">Per chi lavoro</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#ecoview">EcoVIEW</a></li>
+        <li><a href="#ecoview">Ecoview</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
     </nav>
@@ -510,13 +511,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="eco">
         <div>
           <span class="kicker">La mia società</span>
-          <h2>Altri servizi con EcoVIEW</h2>
-          <p>Oltre all'attività professionale individuale, offro ulteriori servizi attraverso EcoVIEW, la mia società. Lorem ipsum dolor sit amet, consectetur adipiscing elit: breve descrizione dei servizi di EcoVIEW.</p>
+          <h2>Altri servizi con Ecoview</h2>
+          <p>Oltre all'attività professionale individuale, offro ulteriori servizi attraverso Ecoview. Ecoview opera nel settore ambientale, inteso nel suo significato più ampio e integrato.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://www.ecoview.it/" target="_blank" rel="noopener">Visita ecoview.it</a>
+            <a class="btn btn-primary" href="https://www.ecoview.it/" target="_blank" rel="noopener">Scopri di più</a>
           </div>
         </div>
-        <a class="eco-badge" href="https://www.ecoview.it/" target="_blank" rel="noopener" aria-label="Vai al sito di EcoVIEW">Eco<b>VIEW</b></a>
+        <a class="eco-badge" href="https://www.ecoview.it/" target="_blank" rel="noopener" aria-label="Vai al sito di Ecoview"><img src="img/logo-ecoview.png" alt="Logo Ecoview" width="200" height="43"></a>
       </div>
     </div>
   </section>
