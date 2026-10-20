@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ludovico Frate – Dottore Forestale | Analisi vincoli, consulenza agronomica, forestale e GIS in Molise e Abruzzo</title>
-<meta name="description" content="Dott. Ludovico Frate, Dottore Forestale. Analisi dei vincoli territoriali e ambientali con GIS, consulenza agronomica e forestale, valutazioni ambientali (VIA, VAS, VIncA), stima del valore del bosco, progetti di taglio, analisi GIS e telerilevamento per privati, aziende e Pubbliche Amministrazioni in Molise e Abruzzo.">
-<meta name="keywords" content="analisi vincoli terreno, telerilevamento, remote sensing, VIA, VAS, PSR, CSR, piano di utilizzazione agronomica, analisi vincolistica, vincoli terreno agricolo, vincolo paesaggistico, vincolo idrogeologico, verifica vincoli particella catastale, Natura 2000, aree idonee fotovoltaico, agrivoltaico Molise, agrivoltaico Abruzzo, dottore forestale Molise, dottore forestale Abruzzo, consulenza agronomica Molise, agronomia Abruzzo, valutazione di incidenza VIncA, stima valore bosco, progetto di taglio bosco, analisi GIS, GIS analyst, consulente forestale, perizia forestale">
+<title>Ludovico Frate – Dottore Forestale | Analisi vincoli e GIS in tutta Italia, consulenza agronomica e forestale in Molise e Abruzzo</title>
+<meta name="description" content="Dott. Ludovico Frate, Dottore Forestale. Analisi dei vincoli territoriali e ambientali con GIS, consulenza agronomica e forestale, valutazioni ambientali (VIA, VAS, VIncA), stima del valore del bosco, progetti di taglio, analisi GIS e telerilevamento per privati, aziende e Pubbliche Amministrazioni in Molise e Abruzzo, con analisi GIS e dei vincoli in tutta Italia.">
+<meta name="keywords" content="analisi vincoli terreno, analisi vincoli online, consulente GIS, analisi GIS Italia, telerilevamento, remote sensing, VIA, VAS, PSR, CSR, piano di utilizzazione agronomica, analisi vincolistica, vincoli terreno agricolo, vincolo paesaggistico, vincolo idrogeologico, verifica vincoli particella catastale, Natura 2000, aree idonee fotovoltaico, agrivoltaico Molise, agrivoltaico Abruzzo, dottore forestale Molise, dottore forestale Abruzzo, consulenza agronomica Molise, agronomia Abruzzo, valutazione di incidenza VIncA, stima valore bosco, progetto di taglio bosco, analisi GIS, GIS analyst, consulente forestale, perizia forestale">
 <meta name="author" content="Ludovico Frate">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
@@ -33,7 +33,8 @@
   "telephone": "+39 333 376 7557",
   "areaServed": [
     {"@type": "State", "name": "Molise"},
-    {"@type": "State", "name": "Abruzzo"}
+    {"@type": "State", "name": "Abruzzo"},
+    {"@type": "Country", "name": "Italia"}
   ],
   "serviceType": ["Analisi dei vincoli territoriali e ambientali", "Telerilevamento", "VIA", "VAS", "Piani di utilizzazione agronomica", "Consulenza PSR/CSR", "Relazione vincolistica", "Verifica aree idonee impianti FER", "Relazione agronomica per impianti agrivoltaici", "Consulenza agronomica", "Consulenza forestale", "Valutazione di Incidenza VIncA", "Stima del valore del bosco", "Progetti di taglio boschivo", "Analisi GIS"],
   "sameAs": ["https://www.ecoview.it/"]
@@ -50,6 +51,14 @@
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Partendo dai dati catastali della particella incrocio con strumenti GIS le cartografie ufficiali dei vincoli: paesaggistici, idrogeologici, Natura 2000 e aree protette, aree a rischio frana e alluvione, aree boscate e percorse dal fuoco, aree idonee per impianti da fonti rinnovabili. Il risultato è una relazione con le cartografie che ti dice cosa puoi fare sul fondo e quali autorizzazioni servono."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Lavori anche fuori da Molise e Abruzzo?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sì. Le attività in campo, come sopralluoghi, progetti di taglio, stime e consulenza agronomica, le svolgo in Molise e Abruzzo. Analisi dei vincoli, elaborazioni GIS, cartografie e telerilevamento si fanno invece da remoto: posso lavorare su terreni e progetti in qualsiasi regione d'Italia, partendo dai dati catastali o dai file del progetto."
    }
   },
   {
@@ -195,6 +204,12 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 .area{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .area ul{padding-left:1.1em;color:var(--ink-soft)}
 @media (max-width:760px){.area{grid-template-columns:1fr}}
+.where{display:grid;gap:14px;margin-top:8px}
+.where-box{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--forest);border-radius:0 14px 14px 0;padding:16px 20px}
+.where-box.remote{border-left-color:var(--clay)}
+.where-box h3{font-size:1.08rem;margin-bottom:4px}
+.where-box p{margin:0;color:var(--ink-soft);font-size:.97rem}
+
 
 /* Contact */
 .contact-box{background:var(--forest);color:#f6efe3;border-radius:28px;padding:56px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
@@ -275,7 +290,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">Molise e Abruzzo</span>
+        <span class="eyebrow">Molise e Abruzzo · GIS in tutta Italia</span>
         <h1>Analisi vincoli, consulenza agronomica, forestale e GIS per il tuo territorio</h1>
         <p class="lead">Sono Ludovico Frate, Dottore Forestale. Affianco privati, aziende agricole, studi tecnici, investitori e Pubbliche Amministrazioni nella gestione di boschi, terreni e progetti ambientali, dall'analisi dei vincoli alla Valutazione di Incidenza, con un approccio concreto e basato sui dati.</p>
         <div class="hero-cta">
@@ -319,8 +334,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Analisi dei vincoli</span>
-        <h2>Analisi vincoli territoriali e ambientali in Molise e Abruzzo</h2>
-        <p>Prima di comprare un terreno, progettare un intervento o investire in un impianto, devi sapere cosa puoi fare su quel fondo. Incrocio con strumenti GIS tutti i vincoli che gravano su una particella e ti consegno un quadro chiaro, con cartografie e una relazione tecnica.</p>
+        <h2>Analisi vincoli territoriali e ambientali, in tutta Italia</h2>
+        <p>Prima di comprare un terreno, progettare un intervento o investire in un impianto, devi sapere cosa puoi fare su quel fondo. Incrocio con strumenti GIS tutti i vincoli che gravano su una particella e ti consegno un quadro chiaro, con cartografie e una relazione tecnica. Il servizio è disponibile da remoto in tutta Italia: bastano i dati catastali.</p>
       </div>
       <ul class="agv-list">
         <li><strong>Vincoli paesaggistici</strong><span>Beni tutelati dal Codice dei beni culturali e del paesaggio, compresi boschi, corsi d'acqua e aree di interesse paesaggistico.</span></li>
@@ -443,12 +458,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="wrap area">
       <div>
         <span class="kicker">Dove opero</span>
-        <h2>Molise e Abruzzo</h2>
-        <p>Lavoro in tutto il Molise e l'Abruzzo, con sopralluoghi in campo e un'assistenza diretta dalla prima chiamata alla consegna.</p>
-        <ul>
-          <li>Tutto il territorio del Molise</li>
-          <li>Tutto il territorio dell'Abruzzo</li>
-        </ul>
+        <h2>In campo in Molise e Abruzzo, con il GIS in tutta Italia</h2>
+        <div class="where">
+          <div class="where-box">
+            <h3>In campo · Molise e Abruzzo</h3>
+            <p>Sopralluoghi, progettazione forestale e progetti di taglio, stime del bosco, consulenza agronomica e rilievi.</p>
+          </div>
+          <div class="where-box remote">
+            <h3>Da remoto · tutta Italia</h3>
+            <p>Analisi dei vincoli, GIS e cartografia, telerilevamento e supporto a valutazioni ambientali e studi tecnici di qualsiasi regione.</p>
+          </div>
+        </div>
       </div>
       <div aria-hidden="true">
         <svg viewBox="0 0 400 260" width="100%">
@@ -458,6 +478,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <path d="M180 160 L230 170 Q260 150 320 140 L330 200 Q260 225 200 215 Q170 200 180 160Z" fill="var(--forest)" opacity=".6"/>
           <text x="150" y="105" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="16" fill="var(--forest-deep)">Abruzzo</text>
           <text x="232" y="196" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="16" fill="#fffdf8">Molise</text>
+          <rect x="24" y="214" width="196" height="28" rx="14" fill="var(--clay)"/>
+          <text x="122" y="233" text-anchor="middle" font-family="Nunito Sans, sans-serif" font-weight="700" font-size="12.5" fill="#fffdf8">+ analisi GIS in tutta Italia</text>
         </svg>
       </div>
     </div>
@@ -472,6 +494,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
       <div class="faq">
         <details><summary>Come faccio a sapere che vincoli ci sono sul mio terreno?</summary><p>Partendo dai dati catastali della particella incrocio con strumenti GIS le cartografie ufficiali dei vincoli: paesaggistici, idrogeologici, Natura 2000 e aree protette, aree a rischio frana e alluvione, aree boscate e percorse dal fuoco, aree idonee per impianti da fonti rinnovabili. Il risultato è una relazione con le cartografie che ti dice cosa puoi fare sul fondo e quali autorizzazioni servono.</p></details>
+        <details><summary>Lavori anche fuori da Molise e Abruzzo?</summary><p>Sì. Le attività in campo, come sopralluoghi, progetti di taglio, stime e consulenza agronomica, le svolgo in Molise e Abruzzo. Analisi dei vincoli, elaborazioni GIS, cartografie e telerilevamento si fanno invece da remoto: posso lavorare su terreni e progetti in qualsiasi regione d'Italia, partendo dai dati catastali o dai file del progetto.</p></details>
         <details><summary>Posso installare pannelli fotovoltaici sul mio terreno agricolo?</summary><p>Dipende dal tipo di impianto e dal terreno. Oggi in zona agricola il fotovoltaico a terra tradizionale è ammesso solo in casi limitati, ad esempio nelle aree idonee individuate dalla legge, mentre l'agrivoltaico con moduli sollevati, che permette di continuare a coltivare o pascolare, resta possibile con le autorizzazioni previste. Una verifica agronomica e cartografica del terreno chiarisce quale strada è percorribile.</p></details>
         <details><summary>Mi hanno proposto di affittare il terreno per un impianto: cosa devo controllare?</summary><p>Prima di firmare conviene capire se il terreno è davvero idoneo, che vincoli ha, quanto vale e quali impegni comporta il contratto, ad esempio la durata, la gestione agricola sotto i pannelli e il ripristino a fine vita dell'impianto. Una valutazione tecnica indipendente ti aiuta a trattare con lo sviluppatore con le informazioni giuste.</p></details>
         <details><summary>Quando serve la Valutazione di Incidenza (VIncA)?</summary><p>Serve per piani, progetti e interventi che possono avere effetti su un sito della Rete Natura 2000 (ZSC o ZPS), anche se si trovano all'esterno del sito. Riguarda ad esempio tagli boschivi, impianti energetici, opere e trasformazioni del suolo. Si parte con uno screening che stabilisce se serve una valutazione più approfondita.</p></details>
