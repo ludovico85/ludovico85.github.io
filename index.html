@@ -181,7 +181,10 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 .card p{color:var(--ink-soft);margin:0}
 
 /* Audience */
-.audience{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.audience{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.aud{grid-column:span 2}
+.aud:nth-child(n+4){grid-column:span 3}
+@media (max-width:860px){.audience{grid-template-columns:1fr}.aud,.aud:nth-child(n+4){grid-column:auto}}
 .aud{padding:26px;border-left:4px solid var(--moss);background:var(--surface);border-radius:0 var(--radius) var(--radius) 0}
 .aud h3{font-size:1.15rem}
 .aud p{margin:0;color:var(--ink-soft)}
