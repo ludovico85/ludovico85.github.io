@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ludovico Frate – Dottore Forestale | Analisi vincoli, consulenza agronomica, forestale e GIS in Molise e Abruzzo</title>
-<meta name="description" content="Dott. Ludovico Frate, Dottore Forestale. Analisi dei vincoli territoriali e ambientali con GIS, consulenza agronomica e forestale, Valutazione di Incidenza (VIncA), stima del valore del bosco, progetti di taglio e analisi GIS per privati, aziende e Pubbliche Amministrazioni in Molise e Abruzzo.">
-<meta name="keywords" content="analisi vincoli terreno, analisi vincolistica, vincoli terreno agricolo, vincolo paesaggistico, vincolo idrogeologico, verifica vincoli particella catastale, Natura 2000, aree idonee fotovoltaico, agrivoltaico Molise, agrivoltaico Abruzzo, dottore forestale Molise, dottore forestale Abruzzo, consulenza agronomica Molise, agronomia Abruzzo, valutazione di incidenza VIncA, stima valore bosco, progetto di taglio bosco, analisi GIS, GIS analyst, consulente forestale, perizia forestale">
+<meta name="description" content="Dott. Ludovico Frate, Dottore Forestale. Analisi dei vincoli territoriali e ambientali con GIS, consulenza agronomica e forestale, valutazioni ambientali (VIA, VAS, VIncA), stima del valore del bosco, progetti di taglio, analisi GIS e telerilevamento per privati, aziende e Pubbliche Amministrazioni in Molise e Abruzzo.">
+<meta name="keywords" content="analisi vincoli terreno, telerilevamento, remote sensing, VIA, VAS, PSR, CSR, piano di utilizzazione agronomica, analisi vincolistica, vincoli terreno agricolo, vincolo paesaggistico, vincolo idrogeologico, verifica vincoli particella catastale, Natura 2000, aree idonee fotovoltaico, agrivoltaico Molise, agrivoltaico Abruzzo, dottore forestale Molise, dottore forestale Abruzzo, consulenza agronomica Molise, agronomia Abruzzo, valutazione di incidenza VIncA, stima valore bosco, progetto di taglio bosco, analisi GIS, GIS analyst, consulente forestale, perizia forestale">
 <meta name="author" content="Ludovico Frate">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
     "@type": "Person",
     "name": "Ludovico Frate",
     "jobTitle": "Dottore Forestale",
-    "knowsAbout": ["Analisi dei vincoli territoriali", "Vincolo paesaggistico", "Vincolo idrogeologico", "Rete Natura 2000", "Agrivoltaico", "Agronomia", "Selvicoltura", "Valutazione di Incidenza", "Estimo forestale", "GIS", "Analisi territoriale", "Telerilevamento"]
+    "knowsAbout": ["Analisi dei vincoli territoriali", "Ecologia del paesaggio", "Valutazione di Impatto Ambientale", "Valutazione Ambientale Strategica", "Vincolo paesaggistico", "Vincolo idrogeologico", "Rete Natura 2000", "Agrivoltaico", "Agronomia", "Selvicoltura", "Valutazione di Incidenza", "Estimo forestale", "GIS", "Analisi territoriale", "Telerilevamento"]
   },
   "email": "frateludovico@gmail.com",
   "telephone": "+39 333 376 7557",
@@ -35,7 +35,7 @@
     {"@type": "State", "name": "Molise"},
     {"@type": "State", "name": "Abruzzo"}
   ],
-  "serviceType": ["Analisi dei vincoli territoriali e ambientali", "Relazione vincolistica", "Verifica aree idonee impianti FER", "Relazione agronomica per impianti agrivoltaici", "Consulenza agronomica", "Consulenza forestale", "Valutazione di Incidenza VIncA", "Stima del valore del bosco", "Progetti di taglio boschivo", "Analisi GIS"],
+  "serviceType": ["Analisi dei vincoli territoriali e ambientali", "Telerilevamento", "VIA", "VAS", "Piani di utilizzazione agronomica", "Consulenza PSR/CSR", "Relazione vincolistica", "Verifica aree idonee impianti FER", "Relazione agronomica per impianti agrivoltaici", "Consulenza agronomica", "Consulenza forestale", "Valutazione di Incidenza VIncA", "Stima del valore del bosco", "Progetti di taglio boschivo", "Analisi GIS"],
   "sameAs": ["https://www.ecoview.it/"]
 }
 </script>
@@ -173,7 +173,9 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 @media (max-width:760px){.about{grid-template-columns:1fr}.portrait{max-width:280px}}
 
 /* Services */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);transition:transform .2s}
 .card:hover{transform:translateY(-3px)}
 .icon{width:52px;height:52px;border-radius:14px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--forest)}
@@ -281,7 +283,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <a class="btn btn-ghost" href="#servizi">Scopri i servizi</a>
         </div>
         <ul class="tags" aria-label="Competenze">
-          <li>Analisi vincoli</li><li>Agronomia</li><li>Selvicoltura</li><li>VIncA</li><li>Estimo forestale</li><li>GIS &amp; cartografia</li>
+          <li>Analisi vincoli</li><li>Agronomia</li><li>Selvicoltura</li><li>VIA · VAS · VIncA</li><li>Telerilevamento</li><li>Estimo forestale</li><li>GIS &amp; cartografia</li>
         </ul>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -358,10 +360,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="portrait" role="img" aria-label="Spazio per la foto di Ludovico Frate">LF<small>Foto in arrivo</small></div>
       <div>
         <span class="kicker">Chi sono</span>
-        <h2>Un professionista del bosco e dell'agricoltura, con gli strumenti del GIS</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus, posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.</p>
-        <p><strong>Lorem ipsum:</strong> iscrizione all'Ordine, formazione, specializzazioni.</p>
+        <h2>Un professionista del bosco e del territorio, con gli strumenti del GIS</h2>
+        <p>Sono Ludovico Frate, Dottore Forestale, con un Dottorato di Ricerca (PhD) in Ecologia del Paesaggio. Da sempre unisco il lavoro in campo all'uso dei Sistemi Informativi Geografici (GIS) e del telerilevamento: tutto ciò che si può mappare si può anche analizzare, e da lì nascono decisioni più solide.</p>
+        <p>Mi occupo di progettazione forestale, consulenza agronomica, valutazioni ambientali (VIA, VAS, VIncA) e analisi dei vincoli territoriali, per privati, aziende, studi tecnici, investitori e Pubbliche Amministrazioni.</p>
+        <p>Collaboro inoltre con il laboratorio EnvixLab dell'Università degli Studi del Molise in progetti di ricerca nazionali e internazionali: un legame che mi permette di portare nella consulenza metodi e dati sempre aggiornati.</p>
       </div>
     </div>
   </section>
@@ -376,19 +378,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
       <div class="grid">
         <article class="card">
+          <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><circle cx="14" cy="11" r="3"/><path d="M16.2 13.2L19 16"/></svg></div>
+          <h3>Analisi dei vincoli</h3>
+          <p>Verifica GIS di tutti i vincoli su una particella: paesaggistici, idrogeologici, Natura 2000, aree a rischio e aree idonee. <a href="#vincoli">Scopri di più</a></p>
+        </article>
+        <article class="card">
           <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 8 4 3 4c0 5 4 8 9 8z"/><path d="M12 14c0-4 3-7 9-7 0 4-3 7-9 7z"/></svg></div>
           <h3>Consulenza agronomica</h3>
-          <p>Supporto tecnico ad aziende agricole e privati: gestione dei terreni e delle colture, pratiche per bandi e finanziamenti, perizie e relazioni tecniche.</p>
+          <p>Supporto tecnico ad aziende agricole e privati: domande e progetti per bandi PSR/CSR, Piani di utilizzazione agronomica (PUA), gestione dei terreni e delle colture, perizie e relazioni tecniche.</p>
         </article>
         <article class="card">
           <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l6 9h-4l5 8H5l5-8H6z"/><path d="M12 19v3"/></svg></div>
-          <h3>Consulenza forestale</h3>
-          <p>Gestione sostenibile del bosco, piani di gestione forestale, rilievi dendrometrici e assistenza nelle pratiche con gli enti competenti.</p>
+          <h3>Progettazione e consulenza forestale</h3>
+          <p>Progettazione delle utilizzazioni boschive per proprietari pubblici e privati, piani di gestione forestale, rilievi dendrometrici e assistenza nelle pratiche con gli enti competenti.</p>
         </article>
         <article class="card">
           <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Valutazione di Incidenza (VIncA)</h3>
-          <p>Studi e screening di incidenza per interventi in siti Natura 2000 (ZSC e ZPS), per privati, imprese ed enti pubblici.</p>
+          <h3>Valutazioni ambientali: VIA, VAS e VIncA</h3>
+          <p>Studi di impatto ambientale (VIA), Valutazione Ambientale Strategica (VAS) di piani e programmi, screening e studi di incidenza (VIncA) per interventi in siti Natura 2000.</p>
         </article>
         <article class="card">
           <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3 3 0 0 0-5 0c-1 2 0 3 2.5 3.5S15 14 14.5 15.5a3 3 0 0 1-5 0"/><path d="M12 6v2M12 16v2"/></svg></div>
@@ -402,8 +409,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </article>
         <article class="card">
           <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></div>
-          <h3>Analisi GIS e cartografia</h3>
-          <p>Cartografie tematiche, analisi spaziali, elaborazione di dati satellitari e da drone, inquadramenti territoriali e verifica delle aree idonee per progetti e pratiche autorizzative.</p>
+          <h3>GIS e cartografia</h3>
+          <p>Cartografie tematiche, analisi spaziali, banche dati territoriali, inquadramenti territoriali e verifica delle aree idonee per progetti e pratiche autorizzative.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><path d="M3 5h4M17 5h4M12 8v2"/><path d="M5 21l7-8 7 8"/><path d="M8 17.5h8"/></svg></div>
+          <h3>Telerilevamento (remote sensing)</h3>
+          <p>Il paesaggio e le sue dinamiche viste dall'alto: elaborazione di immagini satellitari e da drone per monitorare boschi, colture, uso del suolo e cambiamenti nel tempo.</p>
         </article>
       </div>
     </div>
