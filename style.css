@@ -128,7 +128,7 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 @media (max-width:760px){.about{grid-template-columns:1fr}.portrait{max-width:280px}}
 
 /* Services */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.grid{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);transition:transform .2s}
@@ -213,3 +213,27 @@ h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
 
 footer{padding:36px 0;color:var(--ink-soft);font-size:.9rem;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px}
+
+/* Numeri */
+.facts{padding-block:0 8px}
+.facts-list{list-style:none;margin:0;padding:22px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts-list li{display:grid;gap:2px}
+.facts-list b{font-family:var(--f-head);font-size:2.1rem;line-height:1;color:var(--forest);font-variant-numeric:tabular-nums}
+.facts-list span{font-size:.92rem;color:var(--ink-soft)}
+@media (max-width:760px){.facts-list{grid-template-columns:repeat(2,1fr)}}
+/* Enti */
+.enti{margin-top:34px;padding:24px 26px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+.enti h3{font-size:1.1rem;margin-bottom:12px}
+.enti ul{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.enti li{font-size:.9rem;padding:5px 11px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.enti-comuni{margin:0;color:var(--ink-soft);font-size:.95rem}
+.enti-comuni b{color:var(--ink)}
+/* Pubblicazioni */
+.pubs{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:900px}
+.pubs li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.pub-y{font-family:var(--f-mono);color:var(--clay);font-size:.9rem;padding-top:2px}
+.pubs a{font-weight:600;color:var(--forest-deep);text-decoration:none}
+.pubs a:hover{text-decoration:underline}
+.pubs li span:not(.pub-y){display:block;font-size:.88rem;color:var(--ink-soft);margin-top:4px}
+.pubs-more{margin:18px 0 0}
+.pubs-more a{font-weight:600}
